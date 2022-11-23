@@ -38,25 +38,18 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 import { useTaskStore } from "./stores/TaskStore";
 import TaskDetails from "./components/TaskDetails.vue";
 import TaskForm from "./components/TaskForm.vue";
 import { storeToRefs } from "pinia";
 
-export default {
-  components: { TaskDetails, TaskForm },
-  setup() {
-    const taskStore = useTaskStore();
+const taskStore = useTaskStore();
 
-    const { tasks, loading, favs, favCount, totalCount } =
-      storeToRefs(taskStore);
+const { tasks, loading, favs, favCount, totalCount } = storeToRefs(taskStore);
 
-    taskStore.getTasks();
+taskStore.getTasks();
 
-    const filter = ref("all");
-    return { taskStore, filter, tasks, loading, favs, favCount, totalCount };
-  },
-};
+const filter = ref("all");
 </script>

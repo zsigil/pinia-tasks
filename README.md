@@ -30,3 +30,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Starting json-server from main folder
+
+```sh
+json-server --watch ./data/db.json
+```

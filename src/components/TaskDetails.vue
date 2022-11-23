@@ -16,14 +16,12 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useTaskStore } from "../stores/TaskStore";
 
-export default {
-  props: ["task"],
-  setup() {
-    const taskStore = useTaskStore();
-    return { taskStore };
-  },
-};
+const props = defineProps({
+  task: Object,
+});
+
+const taskStore = useTaskStore();
 </script>
